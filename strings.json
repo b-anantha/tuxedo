@@ -1,0 +1,23 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "data": {
+          "ip_address": "[%key:common::config_flow::data::ip%]",
+          "name": "[%key:common::config_flow::data::name%]",
+          "code": "[%key:common::config_flow::data::pin%]"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
+      "cannot_obtain_key": "Failed to obtain API key from controller",
+      "invalid_address": "Invalid IPv4 address was entered.\nExpected format is `0.0.0.0`.",
+      "invalid_code": "Invalid code was provided.\nMust be 4 digits in length.",
+      "unknown": "[%key:common::config_flow::error::unknown%]"
+    },
+    "abort": {
+      "already_configured": "[%key:common::config_flow::abort::already_configured_device%]"
+    }
+  }
+}

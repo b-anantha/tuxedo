@@ -1,0 +1,25 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Device is already configured"
+        },
+        "error": {
+            "cannot_connect": "Failed to connect to controller",
+            "cannot_obtain_key": "Failed to obtain API key from controller",
+            "invalid_address": "Invalid IPv4 address was entered.\nExpected format is `0.0.0.0`.",
+            "invalid_code": "Invalid code was provided.\nMust be 4 digits in length.",
+            "unknown": "Unexpected error"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "ip_address": "IP Address",
+                    "name": "Name",
+                    "code": "Code"
+                },
+                "description": "If a code is not provided then user input will be required for subsequent arming and disarming.",
+                "title": "Tuxedo Touch Controller"
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{
+  "domain": "tuxedo",
+  "name": "Tuxedo Touch",
+  "config_flow": true,
+  "documentation": "https://www.home-assistant.io/integrations/tuxedo",
+  "requirements": [],
+  "ssdp": [],
+  "zeroconf": [],
+  "homekit": {},
+  "dependencies": [],
+  "codeowners": [
+    "@b-anantha"
+  ],
+  "iot_class": "local_polling"
+}
