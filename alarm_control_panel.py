@@ -22,6 +22,7 @@ from homeassistant.const import (
     STATE_ALARM_ARMED_NIGHT,
     STATE_ALARM_ARMING,
     STATE_ALARM_DISARMED,
+    STATE_ALARM_TRIGGERED,
     STATE_UNAVAILABLE,
 )
 
@@ -118,16 +119,18 @@ class TuxedoTouch(alarm.AlarmControlPanelEntity):
         )
         if response:
             status = response["Status"]
-            if status == "Armed Away":
+            if status == "Ready To Arm":
+                state = STATE_ALARM_DISARMED
+            elif status.endswith(" Secs Remaining"):
+                state = STATE_ALARM_ARMING
+            elif status == "Armed Away":
                 state = STATE_ALARM_ARMED_AWAY
             elif status == "Armed Instant":
                 state = STATE_ALARM_ARMED_NIGHT
             elif status == "Armed Stay":
                 state = STATE_ALARM_ARMED_HOME
-            elif status == "Ready To Arm":
-                state = STATE_ALARM_DISARMED
-            elif status.endswith(" Secs Remaining"):
-                state = STATE_ALARM_ARMING
+            elif status == "Not Ready Fault":
+                state = STATE_ALARM_TRIGGERED
 
             # Entry Delay Active - system is armed and will trigger if code is not entered in time
             # Not Ready Fault - system cannot be armed due to a detected fault
